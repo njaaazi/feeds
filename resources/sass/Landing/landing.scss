@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//Font Awesome
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+@import '../Dashboard/media-queries';
+
+@import "../Dashboard/mixins";
+@import "../Dashboard/global";
+@import "../Dashboard/utilities";
+
+@import 'section';
+@import 'nav';
+@import 'footer';
+
+.landing
+{
+    margin-top: 0;
+}
+h1,h2,h3{
+    font-family: "Nunito Sans",sans-serif;
+}
+
+
+
+.display-2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+@include mq(laptop)
+{
+    .display-2{
+        font-size: 3.5rem;
+    }
+}
+

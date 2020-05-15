@@ -1,0 +1,132 @@
+// As a quick reminder, these are the Bootstrap 4 col breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+
+// HOW TO USE OUR MEDIA QUERIES
+// @include mq(phone) {} for general phone
+// @include mq(phone, portrait) {} for only portrait phone
+// @include mq(phone, landscape) {} for only landscape phone
+// @include min(430) {} for min-width 430px (use ONLY for media queries that don't fit the $media-query-sizes breakpoints)
+// @include max(560) {} for max-width 560px (use ONLY for media queries that don't fit the $media-query-sizes breakpoints)
+// @inlcude min-max(970, 1345) {} for min-width 970px and max-width 1345px (use ONLY for media queries that don't fit the $media-query-sizes breakpoints)
+
+// Media Queries
+$screen: "only screen";
+$landscape: " and (orientation: landscape)";
+$portrait: " and (orientation: portrait)";
+
+$media-query-sizes: (
+        phone: (
+                min: 576px
+        ),
+        tablet: (
+                min: 768px
+        ),
+        laptop: (
+                min: 992px
+        ),
+        desktop: (
+                min: 1200px
+        ),
+);
+
+@function media-label($media, $orientation: false) { // Must use above media query variables
+  @if(not map-has-key($media-query-sizes, $media)) {
+    @warn "the $media value needs to be one of the following #{map-keys($media-query-sizes)}";
+    @return false;
+  }
+
+  $media-sizes: map-get($media-query-sizes, $media);
+
+  $media-label: $screen+" and (min-width:#{map-get($media-sizes, 'min')})";
+
+  @if(length($media-sizes) > 1) {
+    $media-label: $media-label+" and (max-width:#{map-get($media-sizes, 'max')})";
+  }
+
+  @if $orientation {
+    @if $orientation==landscape {
+      $media-label: $media-label + $landscape;
+    }
+
+    @else if $orientation==portrait {
+      $media-label: $media-label + $portrait;
+    }
+
+    @else {
+      $media-label: $media-label;
+    }
+  }
+
+  @return $media-label;
+}
+
+@mixin mq($media, $orientation: false) {
+  $media-query-label: media-label($media, $orientation);
+
+  @if $media-query-label {
+    @media #{media-label($media, $orientation)} {
+      @content;
+    }
+  }
+}
+
+// Use this ONLY if you need a media query that doesn't fit the $media-query-sizes breakpoints above
+@mixin min($media){
+  @media #{$screen} and (min-width: #{$media}px){
+    @content;
+  }
+}
+
+@mixin max($media){
+  @media #{$screen} and (max-width: #{$media}px){
+    @content;
+  }
+}
+
+@mixin min-max($min, $max) {
+  @media #{$screen} and (min-width: #{$min}px) and (max-width: #{$max}px){
+    @content;
+  }
+}
+
+// Select a property and define the value for each screen size
+// Example: @include style-all-screens('padding-bottom', 0, 2.5rem, null, null, 5rem);
+@mixin style-all-screens($prop, $default, $phone, $tablet, $laptop, $desktop){
+  @if($default){
+    #{$prop}: $default;
+  }
+  @if($phone){
+    @include mq(phone){
+      #{$prop}: $phone;
+    }
+  }
+  @if($tablet){
+    @include mq(tablet){
+      #{$prop}: $tablet;
+    }
+  }
+  @if($laptop){
+    @include mq(laptop){
+      #{$prop}: $laptop;
+    }
+  }
+  @if($desktop){
+    @include mq(desktop){
+      #{$prop}: $desktop;
+    }
+  }
+}
+
+
+
+@include media-breakpoint-up(lg) {
+	.transform-perspective-right {
+		transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg);
+	}
+	.transform-perspective-left{
+		transform: scale(1) perspective(900px) rotateY(20deg) rotateX(-2deg) rotate(-2deg)
+	}
+}
+
+.t-none{
+	transform: none !important;
+}

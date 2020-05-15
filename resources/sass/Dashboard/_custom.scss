@@ -1,0 +1,86 @@
+
+body
+{
+    background-color: #fff;
+    font-family: 'Nunito', sans-serif;
+}
+
+.news
+{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    min-height: 150px;
+    
+    @include mq(laptop){
+        min-height: 250px;
+    }
+}
+
+.card
+{
+    border:none;
+    border-radius: 0;
+    padding: 2px;
+
+    .card-title {
+        margin-bottom: 0.75rem;
+        padding: 5px;
+        margin: 0;
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        width: 97%;
+        background: white;
+
+        @include mq(laptop){
+            font-size: 14px;
+            width: 99%;
+        }
+    }
+}
+
+
+.card-icon
+{
+    padding: 5px;
+    img{
+        width: 20px;
+    }
+    i{
+        padding-left: 3px;
+    }
+} 
+
+
+.instaBtn
+{
+    width: 100%;
+    border: none;
+    background: none;
+
+    @include mq(laptop){
+        font-size: 14px;
+        width:30%;
+
+    }
+}
+
+.profile
+{
+    padding: 2px;
+
+    img
+    {
+        border-radius: 50%;
+    }
+}
+
+.goto
+{
+    padding: 2px;
+}
+
+main
+{
+    margin-top: 80px;
+}
+

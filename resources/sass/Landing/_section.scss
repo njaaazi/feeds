@@ -1,0 +1,108 @@
+.section {
+    position: relative;
+    padding-top: $spacer * 3;
+    padding-bottom: $spacer * 3;
+}
+
+.section-header {
+    position: relative;
+    padding-top: $spacer * 5;
+    padding-bottom: $spacer * 3;
+    margin-top: -56px;
+}
+
+@include media-breakpoint-up(sm) {
+    .section {
+        position: relative;
+        padding-top: $spacer * 5;
+        padding-bottom: $spacer * 5;
+    }
+    .section-header {
+        position: relative;
+        padding-top: $spacer * 8;
+        padding-bottom: $spacer * 8;
+        &.section-sm{
+            padding-top: $spacer * 4;
+            padding-bottom: $spacer * 3;
+        }
+    }
+    .section-xl {
+        padding-top: $spacer * 8;
+        padding-bottom: $spacer * 8;
+    }
+    .section-lg {
+        padding-top: $spacer * 6;
+        padding-bottom: $spacer * 6;
+    }
+    .section-sm {
+        padding-top: $spacer * 3;
+        padding-bottom: $spacer * 3;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .section {
+        position: relative;
+        padding-top: $spacer * 6;
+        padding-bottom: $spacer * 6;
+    }
+    .section-header {
+        position: relative;
+        padding-top: $spacer * 10;
+        padding-bottom: $spacer * 10;
+        &.section-sm{
+            padding-top: $spacer * 4;
+            padding-bottom: $spacer * 3;
+        }
+    }
+    .section-xl {
+        padding-top: $spacer * 10;
+        padding-bottom: $spacer * 10;
+    }
+    .section-lg {
+        padding-top: $spacer * 8;
+        padding-bottom: $spacer * 8;
+    }
+    .section-sm {
+        padding-top: $spacer * 4;
+        padding-bottom: $spacer * 4;
+    }
+}
+
+// Hero sections
+.section-hero {
+    @include media-breakpoint-up(md) {
+        height: 100vh;
+    }
+}
+
+
+.pattern {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-image: url('/../storage/images/wave.svg');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: 1450px 160px;
+    height: 0;
+    padding: 0; /* reset */
+    padding-bottom: 140px;
+
+    @include media-breakpoint-down(md) {
+        background-size: 700px 203px;
+    }
+    
+    &.bottom {
+        bottom: -10px;
+        @include transform(rotate(180deg));
+    }
+
+    &.top {
+        top: -10px
+    }
+}
+
+.bg-soft {
+    background-color: #f4f6fc!important;
+}
