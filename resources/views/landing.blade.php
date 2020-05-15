@@ -5,7 +5,7 @@
         <!-- Hero -->
         <section class="section-header pb-7 pb-lg-11 bg-soft">
             <div class="container">
-                <div class="row justify-content-between align-items-center">
+                <div class="row justify-content-between align-items-center mt-5 mt-md-0">
                     <div class="col-12 col-md-6 order-2 order-lg-1">
                         <img src="{{asset('storage/images/hero-illustration.svg')}}" alt="">
                     </div>
