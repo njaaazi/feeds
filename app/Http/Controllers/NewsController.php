@@ -50,10 +50,9 @@ class NewsController extends Controller
 
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
-        $url2 = 'https://www.instagram.com/'. 'sheeehu' .'/?__a=1';
+        $url2 = 'https://www.instagram.com/'. $user .'/?__a=1';
         $response2 = Http::get($url2)->json();
         $user_id = $response2['graphql']['user']['id'];
-        dd($response2);
 
         $profile_picture = $response2['graphql']['user']['profile_pic_url_hd'];
         $url = "https://www.instagram.com/graphql/query/?query_id=17888483320059182&id=". $user_id ."&first=" . $post_per_page . "&after=" . $end_cursor;
