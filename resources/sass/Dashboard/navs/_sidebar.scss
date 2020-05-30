@@ -115,9 +115,19 @@
     letter-spacing: 0.05rem;
     z-index: 1;
 
-    .sidebar-brand-icon i {
-      font-size: 2rem;
-    }
+
+    .sidebar-brand-icon
+    {
+      i {
+        font-size: 2rem;
+      }
+
+      img
+      {
+        width: 50px;
+        height: 35px;
+      }
+    } 
     .sidebar-brand-text {
       display: none;
     }

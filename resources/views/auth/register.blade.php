@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<section class="section-header pb-7 pb-lg-11 bg-soft">
+
+<div class="container mt-5 pt-5 pb-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header bg-transparent">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -108,4 +110,7 @@
         </div>
     </div>
 </div>
+
+<div class="pattern bottom"></div>
+</section>
 @endsection

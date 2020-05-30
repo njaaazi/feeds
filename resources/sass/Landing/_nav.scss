@@ -1,5 +1,21 @@
 nav
 {
     z-index: 2;
-
 }
+.navbar
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .navbar-brand{
+        width: 50px;
+        top: 0;
+
+        img
+        {
+            height: 35px;
+        }
+    }
+}
+

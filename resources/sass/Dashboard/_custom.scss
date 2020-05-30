@@ -77,6 +77,17 @@ body
 .goto
 {
     padding: 2px;
+
+    a{
+        border: 1px solid;
+        padding: 10px 20px;
+        border-radius: 8px;
+
+        &:hover
+        {
+            text-decoration: none;
+        }
+    }
 }
 
 main
@@ -84,3 +95,18 @@ main
     margin-top: 80px;
 }
 
+
+.bg-gradient-primary
+{
+   background-color:#6c63ff !important;
+   background-image: linear-gradient(180deg, #6c63ff 10%, #1d68a7 100%);
+}
+.btn-primary {
+    color: #fff;
+    background-color: #6c63ff !important;
+    border-color: #6c63ff !important;
+}
+.btn-link
+{
+    color: #6c63ff !important; 
+}

@@ -23,7 +23,13 @@ h1,h2,h3{
     font-family: "Nunito Sans",sans-serif;
 }
 
+$primary-color: #6c63ff;
 
+.primary
+{
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
 
 .display-2 {
     font-size: 1.875rem;

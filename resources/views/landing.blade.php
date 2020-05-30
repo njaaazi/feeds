@@ -4,7 +4,7 @@
 
         <!-- Hero -->
         <section class="section-header pb-7 pb-lg-11 bg-soft">
-            <div class="container">
+            <div class="container pt-5">
                 <div class="row justify-content-between align-items-center mt-5 mt-md-0">
                     <div class="col-12 col-md-6 order-2 order-lg-1 mb-5 mb-md-0">
                         <img class="w-100"src="{{asset('storage/images/grow-visual.svg')}}" alt="">
@@ -13,7 +13,7 @@
                           <h1 class="display-2 mb-3">Grow your traffic</h1>
                           <p class="lead font-weight-normal">Enrich your feeds, add links to drive traffic from Instagram</p>
                           <div class="mt-4">
-                            <button class="btn btn-primary w-100" type="submit">Create your account</button>
+                            <a href="/register" class="btn btn-primary primary w-100">Create your account</a>
 
                           </div>
                       </div>
@@ -34,15 +34,15 @@
                     <div class="col-12 col-md-5">
                         <h2 class="font-weight-bolder mb-4">How it works</h2>
                         <p class="lead font-weight-normal">Add a link of your articles and webpages in photos and videos you post on Instagram, and drive traffic from the Link in Bio. All posts that contain links will appear in the link that you post in your profile bio. This will help you enrich your posts and also increase the traffic to your website from Instagram.</p>
-                        <a href="" class="btn btn-primary mt-3 animate-up-2">
+                        <a href="" class="btn btn-primary primary mt-3 animate-up-2">
                             Learn More
                             <span class="icon icon-xs ml-2">
                                 <i class="fas fa-external-link-alt"></i>
                             </span>
                         </a>
                     </div>
-                    <div class="col-12 col-md-6 ml-md-auto mt-5 mt-md-0">
-                        <img class="w-100"src="{{asset('storage/images/mobile-feed.svg')}}" alt="">
+                    <div class="col-12 col-md-6 ml-md-auto mt-5 mt-md-0 d-flex justify-content-end pl-5 pr-5">
+                        <img class="w-100" src="{{asset('storage/images/mobile-feed.svg')}}" alt="">
                     </div>
                 </div>
 
@@ -98,8 +98,8 @@
         </section>
 
 
-        
-        <section class="section section-lg pt-5 pb-5 bg-soft">
+        <!-- Video Section  -->
+        <!-- <section class="section section-lg pt-5 pb-5 bg-soft">
             <div class="container">
                 <div class="row"> 
                     <div class="col-12 text-center">
@@ -111,37 +111,24 @@
                     </div>
                 </div> 
             </div>    
-        </section>
+        </section> -->
 
 
         <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden">
             <!-- <div class="pattern pattern-soft top"></div> -->
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-between">
                     <div class="col-lg-4 mb-4 mb-lg-0">
                         <a class="footer-brand mr-lg-5 d-flex" href="">
-                            <img src="" height="35" class="mr-3" alt="Footer logo">
+                            <img class="w-100" src="{{asset('storage/images/feeds-logo-white.png')}}"  alt="Footer logo"> 
                         </a>
-                        <p class="my-4">Create, prototype, collaborate and turn your ideas into incredible products with the definitive platform for digital design.</p>
+                        <p class="my-4">Make your Instagram posts more attractive and your website pages more reachable.</p>
                      
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-4 mb-4 mb-lg-0 text-center">
-                        <h6>Themesberg</h6>
-                        <ul class="links-vertical">
-                            <li><a target="_blank" href="https://themesberg.com/blog?ref=creativetim">Blog</a></li>
-                     
-                        </ul>
-                    </div>
-                    <!-- <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0">
-                        <h6>Creative Tim</h6>
-                        <ul class="links-vertical">
-                            <li><a target="_blank" href="https://themesberg.com/blog?ref=creativetim">Blog</a></li>
-                     
-                        </ul>
-                    </div> -->
+    
                     <div class="col-12 col-sm-6 col-lg-4">
                         <h6>Subscribe</h6>
-                        <p class="font-small">The latest Impact news, articles, and resources, sent straight to your inbox every month.</p>
+                        <p class="font-small">To get our latest updates about new features.</p>
                         <form action="#">
                             <div class="form-row">
                                 <div class="col-8">
@@ -152,14 +139,13 @@
                                 </div>
                             </div>
                         </form>
-                        <small class="mt-2 form-text">We’ll never share your details. See our <a href="#" class="font-weight-bold text-underline">Privacy Policy</a></small>
                     </div>
                 </div>
                 <hr class="my-4 my-lg-5">
                 <div class="row">
                     <div class="col pb-4 mb-md-0">
                         <div class="d-flex text-center justify-content-center align-items-center">
-                            <p class="font-weight-normal mb-0">© <a href="https://themesberg.com?ref=creativetim*" target="_blank">Themesberg</a> & <a href="https://creative-tim.com">Creative Tim</a> <span class="current-year"></span>. All rights reserved.</p>
+                            <p class="font-weight-normal mb-0">© <a class="text-white" href="/">Feeds</a><span class="current-year"> {{ now()->year }}</span>. All rights reserved.</p>
                         </div>
                     </div>
                 </div>

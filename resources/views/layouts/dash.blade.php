@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" type="image/png" href="{{asset('storage/images/favicon.ico')}}"/>
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,77 +26,77 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
-            <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3"></div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="/dashboard">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Articles
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="/articles" >
-            <i class="fas fa-fw fa-list"></i>
-            <span>Show all</span>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+                <div class="sidebar-brand-icon p-2">
+                    <img src="{{asset('storage/images/feeds-logo-white.png')}}" alt="Feeds logo">
+                   
+                </div>
+                <div class="sidebar-brand-text mx-3"></div>
             </a>
-        </li>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="/articles/add">
-            <i class="fas fa-fw fa-plus"></i>
-            <span>Add new</span>
-            </a>
-        </li>
-        
-
-      
-        
-        @role('super-admin')
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
+                <a class="nav-link" href="/dashboard">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Approvals
+                Articles
             </div>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/user/pending" >
-                <i class="fas fa-fw fa-check"></i>
-                <span>Approve Users</span>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ request()->is('articles') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="/articles" >
+                <i class="fas fa-fw fa-list"></i>
+                <span>Show all</span>
                 </a>
             </li>
 
-        @endrole
-   
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ request()->is('articles/add') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="/articles/add">
+                <i class="fas fa-fw fa-plus"></i>
+                <span>Add new</span>
+                </a>
+            </li>
+            
+
+        
+            
+            @role('super-admin')
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Approvals
+                </div>
+
+                <li class="nav-item {{ request()->is('user/pending') ? 'active' : '' }}">
+                    <a class="nav-link collapsed" href="/user/pending" >
+                    <i class="fas fa-fw fa-check"></i>
+                    <span>Approve Users</span>
+                    </a>
+                </li>
+
+            @endrole
+    
 
 
 
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
         </ul>
         <!-- End of Sidebar -->
@@ -219,7 +220,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>&copy; instafeed.social 2020</span>
+                <span>&copy; Feeds {{ now()->year }}. All rights reserved.</span>
             </div>
             </div>
         </footer>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{{asset('storage/images/favicon.ico')}}"/>
     <title>Feeds.social</title>
 
     <!-- Styles -->
@@ -55,9 +56,17 @@
                     </a>
                 </div>
             @endforeach
+
         </div>
     </div>
+    
+    <div style="width: 100%; text-align:center; position:fixed; bottom:0;">
+       <a style="background-color:white; padding: 20px; border-radius: 50%;" href="/"><i class="fas fa-2x fa-angle-double-up"></i></a> 
+    </div>
+
 </main>
+
+
 
 </body>
 </html>

@@ -30,7 +30,7 @@
                             <td>{{$user->username}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                            <form method="POST" action="/user/{{$user->username}}/pending/approve">
+                            <form method="POST" action="/user/{{$user->insta_account}}/pending/approve">
                                 @csrf
 
                                 <button type="submit" class="btn btn-primary">Approve</button>

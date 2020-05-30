@@ -15799,6 +15799,21 @@ nav {
   z-index: 2;
 }
 
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.navbar .navbar-brand {
+  width: 50px;
+  top: 0;
+}
+
+.navbar .navbar-brand img {
+  height: 35px;
+}
+
 /**
  * = Footers
  */
@@ -15857,6 +15872,10 @@ nav {
   margin-bottom: 5px;
 }
 
+.footer .footer-brand {
+  width: 50px;
+}
+
 .footer .footer-brand img.common {
   height: 35px;
 }
@@ -15886,6 +15905,11 @@ h1,
 h2,
 h3 {
   font-family: "Nunito Sans", sans-serif;
+}
+
+.primary {
+  background-color: #6c63ff !important;
+  border-color: #6c63ff !important;
 }
 
 .display-2 {
