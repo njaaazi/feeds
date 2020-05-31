@@ -139,6 +139,7 @@ fetch('/instaApi?end_cursor=')
         })
       
         .then(insta => {
+            console.log(insta.posts)
             $.each(insta.posts, function(i, item) {
                 $('#card-body').append("<button class='instaBtn'  type='button' data-toggle='modal' data-target='#addModal'> <img width='100%' height='100%' src=" + item.node.display_url + " data-taken_at_timestamp="+ item.node.taken_at_timestamp +"  data-typename="+ item.node.__typename +"> </button>");
             })
@@ -154,7 +155,7 @@ function load_more(){
               return response.json();
           })
           .then(insta => {
-              // console.log(insta.posts)
+              console.log(insta.posts)
               $.each(insta.posts, function(i, item) {
                   $('#card-body').append("<button class='instaBtn' type='button' data-toggle='modal' data-target='#addModal'> <img width='100%' height='100%' src=" + item.node.display_url + " data-taken_at_timestamp="+ item.node.taken_at_timestamp +"  data-typename="+ item.node.__typename +"> </button>");
               })
