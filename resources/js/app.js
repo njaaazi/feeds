@@ -134,6 +134,7 @@ let end_cursor = '';
 
 fetch('/instaApi?end_cursor=')
         .then(response => {
+            console.log(response);
             return response.json();
         })
       
@@ -149,6 +150,7 @@ function load_more(){
 
       fetch('/instaApi?end_cursor='+ end_cursor)
           .then(response => {
+              console.log(response);
               return response.json();
           })
           .then(insta => {
