@@ -122,7 +122,7 @@ import Clipboard from 'clipboard';
 
 
 
-
+$(document).ready( function () {
 
 /**
  * Show insta news from calling our api method in NewsController
@@ -163,7 +163,7 @@ function load_more(){
               load_more_btn.innerHTML ='Load more';
           })
 };
-
+});
 /**
  * End of insta api 
  */
