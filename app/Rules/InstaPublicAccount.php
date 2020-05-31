@@ -27,7 +27,7 @@ class InstaPublicAccount implements Rule
     public function passes($attribute, $value)
     {
         $url = 'https://www.instagram.com/'. $value .'/?__a=1';
-        $response = Http::get($url)->json();
+        $response = Http::timeout(5)->get($url)->json();
         return $response['graphql']['user']['is_private'] == false;
     }
 
