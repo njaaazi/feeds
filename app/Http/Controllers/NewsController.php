@@ -54,9 +54,9 @@ class NewsController extends Controller
                
         $url2 = 'https://www.instagram.com/'. $user .'/?__a=1';
         $response2 = Http::withOptions(['verify' => false])->get($url2)->json();
-        $user_id = $response2['graphql']['user']['id'];
-        // var_dump('Response 2');
-        // var_dump($response2);
+        // $user_id = $response2['graphql']['user']['id'];
+        var_dump('Response 2');
+        var_dump($response2);
         $profile_picture = $response2['graphql']['user']['profile_pic_url_hd'];
         $url = "https://www.instagram.com/graphql/query/?query_id=17888483320059182&id=". $user_id ."&first=" . $post_per_page . "&after=" . $end_cursor;
         $response = Http::get($url)->json();
