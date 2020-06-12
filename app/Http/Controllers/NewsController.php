@@ -46,37 +46,12 @@ class NewsController extends Controller
     //     }
 
     // }
-    public function scrape_insta($username) {
-        $insta_source = file_get_contents('http://instagram.com/'.$username);
-        $shards = explode('window._sharedData = ', $insta_source);
-        $insta_json = explode(';</script>', $shards[1]); 
-        $insta_array = json_decode($insta_json[0], TRUE);
-        return $insta_array;
-    }
+
 
     
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
-        //Supply a username
-        $my_account = 'gazetaexpress'; 
-
-        //Do the deed
-        $results_array = $this->scrape_insta($my_account);
-
-        //An example of where to go from there
-    
-        dd($results_array);
-
-        echo 'Latest Photo:<br/>';
-        echo '<a href="http://instagram.com/p/'.$latest_array['code'].'"><img src="'.$latest_array['display_src'].'"></a></br>';
-        echo 'Likes: '.$latest_array['likes']['count'].' - Comments: '.$latest_array['comments']['count'].'<br/>';
-        
-        $client = new \GuzzleHttp\Client();
-        $request = $client->get('https://www.instagram.com/gazetaexpress/?__a=1');
-        $response = $request->getBody()->getContents();
-
-        dd($response);
-
+               
         $url2 = 'https://www.instagram.com/'. $user .'/?__a=1';
         $response2 = Http::withOptions(['verify' => false])->get($url2)->json();
         $user_id = $response2['graphql']['user']['id'];
