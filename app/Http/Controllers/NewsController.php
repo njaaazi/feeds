@@ -53,7 +53,7 @@ class NewsController extends Controller
     {
                
         $url2 = 'https://www.instagram.com/'. $user .'/?__a=1';
-        $response2 = Http::withOptions(['verify' => false])->get($url2)->json();
+        $response2 = Http::get($url2)->json();
         // $user_id = $response2['graphql']['user']['id'];
         var_dump('Response 2');
         var_dump($response2);die;
