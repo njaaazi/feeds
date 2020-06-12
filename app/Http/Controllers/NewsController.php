@@ -65,7 +65,7 @@ class NewsController extends Controller
 
         //An example of where to go from there
     
-        dd($latest_array);
+        dd($results_array);
 
         echo 'Latest Photo:<br/>';
         echo '<a href="http://instagram.com/p/'.$latest_array['code'].'"><img src="'.$latest_array['display_src'].'"></a></br>';
