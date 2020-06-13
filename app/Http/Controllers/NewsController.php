@@ -61,10 +61,14 @@ class NewsController extends Controller
         curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/gazetaexpress/?__a=1");
         // Execute
         $result=curl_exec($ch);
+
+
+
+        dd(curl_error($ch));
+
         // Closing
         curl_close($ch);
 
-        dd(curl_error($ch));
 
         // Will dump a beauty json :3
         var_dump(json_decode($result, true));die;
