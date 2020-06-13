@@ -17,6 +17,7 @@ class NewsController extends Controller
  
     public function __construct()
     {
+        error_reporting(-1);ini_set('display_errors', 1);
         $this->middleware('auth')->except('profile');
     }
 
