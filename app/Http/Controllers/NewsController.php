@@ -51,33 +51,7 @@ class NewsController extends Controller
     
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
-        $server = '64.227.122.107';
-        $host = 'www.feeds.social';
-        
-        //  Initiate curl
-        $ch = \curl_init();
-        curl_setopt($ch, CURLOPT_URL, $server);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-
-        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-        curl_setopt($ch, CURLOPT_VERBOSE, true);
-
-        // Set the url
-        curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/gazetaexpress/?__a=1");
-        // Execute
-        $result=curl_exec($ch);
-
-        // Closing
-        curl_close($ch);
-
-        dd($result);
-               
+                   
         $url2 = 'https://www.instagram.com/gazetaexpress/?__a=1';
         $response2 = Http::get($url2)->json();
         // $user_id = $response2['graphql']['user']['id'];
