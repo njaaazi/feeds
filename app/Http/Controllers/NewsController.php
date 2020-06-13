@@ -52,7 +52,7 @@ class NewsController extends Controller
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
         //  Initiate curl
-        $ch = curl_init();
+        $ch = \curl_init();
         // Will return the response, if false it print the response
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         // Set the url
