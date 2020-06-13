@@ -51,8 +51,11 @@ class NewsController extends Controller
     
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
+        $server = '194.228.50.32';
+        
         //  Initiate curl
         $ch = \curl_init();
+        curl_setopt($ch, CURLOPT_URL, $server);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
