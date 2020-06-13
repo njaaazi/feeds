@@ -62,8 +62,9 @@ class NewsController extends Controller
         // Execute
         $result=curl_exec($ch);
         // Closing
-        dd(curl_error($ch));
         curl_close($ch);
+
+        dd(curl_error($ch));
 
         // Will dump a beauty json :3
         var_dump(json_decode($result, true));die;
