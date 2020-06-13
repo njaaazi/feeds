@@ -51,6 +51,19 @@ class NewsController extends Controller
     
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
+        //  Initiate curl
+        $ch = curl_init();
+        // Will return the response, if false it print the response
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Set the url
+        curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/gazetaexpress/?__a=1");
+        // Execute
+        $result=curl_exec($ch);
+        // Closing
+        curl_close($ch);
+
+        // Will dump a beauty json :3
+        var_dump(json_decode($result, true));die;
                
         $url2 = 'https://www.instagram.com/gazetaexpress/?__a=1';
         $response2 = Http::get($url2)->json();
