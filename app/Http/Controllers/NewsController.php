@@ -51,7 +51,8 @@ class NewsController extends Controller
     
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
-        $server = '194.228.50.32';
+        $server = '64.227.122.107';
+        $host = 'www.feeds.social';
         
         //  Initiate curl
         $ch = \curl_init();
@@ -63,6 +64,12 @@ class NewsController extends Controller
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+        $headers = array();
+        $headers[] = "Host: $host";
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
 
         // Set the url
