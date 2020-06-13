@@ -62,16 +62,10 @@ class NewsController extends Controller
         // Execute
         $result=curl_exec($ch);
 
-
-
-        dd(curl_error($ch));
-
         // Closing
         curl_close($ch);
 
-
-        // Will dump a beauty json :3
-        var_dump(json_decode($result, true));die;
+        dd($result);
                
         $url2 = 'https://www.instagram.com/gazetaexpress/?__a=1';
         $response2 = Http::get($url2)->json();
