@@ -65,10 +65,6 @@ class NewsController extends Controller
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 
-        $headers = array();
-        $headers[] = "Host: $host";
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
 
