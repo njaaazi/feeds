@@ -52,9 +52,9 @@ class NewsController extends Controller
     public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
     {
                    
-        $url2 = 'https://www.instagram.com/'. $user .'/?__a=1';
+        $url2 = 'https://www.instagram.com/gazetaexpress/?__a=1';
         $response2 = Http::get($url2)->json();
-        
+
         $responseTest = Http::get($url2);
         $responseTest->successful();
         $responseTest->failed();
