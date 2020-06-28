@@ -56,8 +56,6 @@ class NewsController extends Controller
         $response2 = Http::get($url2)->json();
 
         $responseTest = Http::get($url2);
-        $responseTest->successful();
-        $responseTest->failed();
         $responseTest->clientError();
         $responseTest->serverError();
 

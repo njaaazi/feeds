@@ -29,11 +29,6 @@ class InstaUser implements Rule
     {
         $url = 'https://www.instagram.com/'. $value .'/?__a=1';
         $response = Http::get($url)->json();
-        $responseTest = Http::get($url);
-        $responseTest->successful();
-        $responseTest->failed();
-        $responseTest->clientError();
-        $responseTest->serverError();
         return $response != null;
     }
 
