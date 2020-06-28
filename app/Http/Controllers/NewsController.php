@@ -53,30 +53,15 @@ class NewsController extends Controller
     {
                    
         $url2 = 'https://www.instagram.com/'. $user .'/?__a=1';
-        // $response2 = Http::get($url2)->json();
-        // dd($response2);
-
-        $ch2 = curl_init();
-        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch2, CURLOPT_URL, $url2);
-        $result = curl_exec ($ch2);
-        curl_close ($ch2);
-        $response2 = json_decode($result, true);
-
-
-        $user_id = $response2['graphql']['user']['id'];
-
+        $response2 = Http::get($url2)->json();
+        // $user_id = $response2['graphql']['user']['id'];
+        var_dump('Response 2');
+        var_dump($response2);die;
         $profile_picture = $response2['graphql']['user']['profile_pic_url_hd'];
         $url = "https://www.instagram.com/graphql/query/?query_id=17888483320059182&id=". $user_id ."&first=" . $post_per_page . "&after=" . $end_cursor;
-        // $response = Http::get($url)->json();
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        $result = curl_exec ($ch);
-        curl_close ($ch);
-        $response = json_decode($result, true);
-
+        $response = Http::get($url)->json();
+        // var_dump('Response');
+        // var_dump($response);die;
         
         $posts = $response['data']['user']['edge_owner_to_timeline_media']['edges'];
         $end_cursor = $response['data']['user']['edge_owner_to_timeline_media']['page_info']['end_cursor'];

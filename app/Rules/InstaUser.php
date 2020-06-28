@@ -28,15 +28,7 @@ class InstaUser implements Rule
     public function passes($attribute, $value)
     {
         $url = 'https://www.instagram.com/'. $value .'/?__a=1';
-        // $response = Http::get($url)->json();
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        $result = curl_exec ($ch);
-        curl_close ($ch);
-        $response = json_decode($result, true);
-        
+        $response = Http::get($url)->json();
         return $response != null;
     }
 
