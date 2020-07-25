@@ -16,7 +16,6 @@
         <div class="container">
             <div class="row justify-content-between align-items-center"> 
                 <div class="profile col-6">
-                <img width="50px" src="{{$profile_picture}}" alt="">
                 </div>
                 @if($user->profile->website_url)
                     <div class="goto col-6 text-right">
@@ -34,9 +33,9 @@
             @foreach($articles as $article)
                 <div class="card col-4">
                     <a href="{{$article->url}}">
-                        <div class="news" style="background: url('{{ $article->image }}') center / cover;">
+                        <div class="news" style="background: url('{{asset('storage')}}/{{$article->image}}') center / cover;">
 
-                            @if($article->type_name == "GraphVideo")
+                            @if($article->video == "on")
                                 <div class="card-icon">
                                     <i class="fas fa-play text-light"></i>
                                     <!-- <img src="{{asset('storage/images/video.png') }}" alt=""> -->

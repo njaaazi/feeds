@@ -180,14 +180,11 @@ class NewsController extends Controller
 
     public function profile(User $user)
     {  
-        // $insta = $this->insta_api('', 12, $user->insta_account);
-        // $articles = $user->news;
-
-        // return view('profile', [
-        //     'user' => $user,
-        //     'articles' => $articles->sortByDesc('taken_at'),
-        //     'profile_picture' => $insta['profile_picture']
-        // ]);
+        $articles = $user->news;
+        return view('profile', [
+            'user' => $user,
+            'articles' => $articles->sortByDesc('taken_at'),
+        ]);
     }
 
 }
