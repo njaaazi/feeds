@@ -23,11 +23,33 @@
                     <h6 class="m-0 font-weight-bold text-primary">All instagram articles</h6>
                 </div>
                 <div id="card-body" class="card-body">
+                    <form action="/articles/add" method="POST" enctype="multipart/form-data">
+                        @csrf
 
+                        <div class="form-group">
+                            <input name="title" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <input name="url" type="text" class="form-control" id="" placeholder="Url*">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Select image</label>
+                            <input name="image" type="file" class="form-control-file" id="">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input name="video" type="checkbox" class="form-check-input">
+                                <label class="form-check-label">Video Icon</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add</button>
+                            
+                    </form>
                 </div>
 
                 <div class="card-footer text-center">
-                    <button id="load_more" class="btn btn-primary"> Load more </button>
+                    <!-- <button id="load_more" class="btn btn-primary"> Load more </button> -->
                 </div>
 
             </div>

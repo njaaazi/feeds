@@ -25,10 +25,12 @@
                 @if($articles->count() > 0)
                     @foreach($articles as $article)
                         <tr>
+                                    
+
                             <td>{{$article->id}}</td>
                             <td class="d-none d-md-table-cell">{{$article->title}}</td>
                             <td class="d-none d-md-table-cell">{{$article->url}}</td>
-                            <td class="image"><img src="{{ $article->image }}" alt=""></td>
+                            <td class="image"><img src="{{asset('storage')}}/{{$article->image}}" alt=""></td>
                             <td class="d-none d-md-table-cell">{{$article->created_at->diffForHumans()}}</td>
                             <td>
                                 <a class="btn btn-primary" href="/articles/{{ $article->id }}/edit">Edit</a>  

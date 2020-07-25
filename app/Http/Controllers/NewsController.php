@@ -49,35 +49,35 @@ class NewsController extends Controller
 
 
     
-    public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
-    {
+    // public function insta_api($end_cursor = '', $post_per_page = 10, $user = '')
+    // {
                    
-        $url2 = 'https://www.instagram.com/gazetaexpress/?__a=1';
-        $response2 = Http::get($url2)->json();
+    //     $url2 = 'https://www.instagram.com/gazetaexpress/?__a=1';
+    //     $response2 = Http::get($url2)->json();
 
-        $responseTest = Http::get($url2);
-        $responseTest->clientError();
-        $responseTest->serverError();
+    //     $responseTest = Http::get($url2);
+    //     $responseTest->clientError();
+    //     $responseTest->serverError();
 
 
-        $user_id = $response2['graphql']['user']['id'];
-        $profile_picture = $response2['graphql']['user']['profile_pic_url_hd'];
-        $url = "https://www.instagram.com/graphql/query/?query_id=17888483320059182&id=". $user_id ."&first=" . $post_per_page . "&after=" . $end_cursor;
-        $response = Http::get($url)->json();
+    //     $user_id = $response2['graphql']['user']['id'];
+    //     $profile_picture = $response2['graphql']['user']['profile_pic_url_hd'];
+    //     $url = "https://www.instagram.com/graphql/query/?query_id=17888483320059182&id=". $user_id ."&first=" . $post_per_page . "&after=" . $end_cursor;
+    //     $response = Http::get($url)->json();
         
-        $posts = $response['data']['user']['edge_owner_to_timeline_media']['edges'];
-        $end_cursor = $response['data']['user']['edge_owner_to_timeline_media']['page_info']['end_cursor'];
-        $has_next_page = $response['data']['user']['edge_owner_to_timeline_media']['page_info']['has_next_page'];
-        $total_posts = $response['data']['user']['edge_owner_to_timeline_media']['count'];
+    //     $posts = $response['data']['user']['edge_owner_to_timeline_media']['edges'];
+    //     $end_cursor = $response['data']['user']['edge_owner_to_timeline_media']['page_info']['end_cursor'];
+    //     $has_next_page = $response['data']['user']['edge_owner_to_timeline_media']['page_info']['has_next_page'];
+    //     $total_posts = $response['data']['user']['edge_owner_to_timeline_media']['count'];
 
-        return ['posts'=> $posts, 'end_cursor' => $end_cursor, 'has_next_page' => $has_next_page, 'total_posts' => $total_posts, 'profile_picture' => $profile_picture];
-    }
+    //     return ['posts'=> $posts, 'end_cursor' => $end_cursor, 'has_next_page' => $has_next_page, 'total_posts' => $total_posts, 'profile_picture' => $profile_picture];
+    // }
 
-    public function insta_api_loadmore()
-    {
-        $user = User::where('id', Auth::id())->first();
-        return $this->insta_api($_GET['end_cursor'], 12, $user->insta_account);
-    }
+    // public function insta_api_loadmore()
+    // {
+    //     $user = User::where('id', Auth::id())->first();
+    //     return $this->insta_api($_GET['end_cursor'], 12, $user->insta_account);
+    // }
 
 
     public function create()
@@ -120,10 +120,11 @@ class NewsController extends Controller
             'user_id' => Auth::id(),
             'title' => request('title'),
             'url' => request('url'),
-            // 'image' => request()->file('image')->store('public/images'),
-            'image' => request('image'),
-            'taken_at' => request('taken_at'),
-            'type_name' => request('type_name'),
+            'image' => request()->file('image')->store('images'),
+            'video' => request('video'),
+            // 'image' => request('image'),
+            // 'taken_at' => request('taken_at'),
+            // 'type_name' => request('type_name'),
         ]);
 
         return back()->with([ 
@@ -146,11 +147,12 @@ class NewsController extends Controller
         $news->user_id = Auth::id();
         $news->title = request('title');
         $news->url = request('url');
-        // if(request()->file('image')):
-        //     if(Storage::exists($news->image))
-        //         Storage::delete($news->image);
-        //     $news->image = request()->file('image')->store('public/images');
-        // endif; 
+        if(request()->file('image')):
+            if(Storage::exists($news->image))
+                Storage::delete($news->image);
+            $news->image = request()->file('image')->store('images');
+        endif; 
+        $news->video = request('video');
         $news->update();
 
 
@@ -178,14 +180,14 @@ class NewsController extends Controller
 
     public function profile(User $user)
     {  
-        $insta = $this->insta_api('', 12, $user->insta_account);
-        $articles = $user->news;
+        // $insta = $this->insta_api('', 12, $user->insta_account);
+        // $articles = $user->news;
 
-        return view('profile', [
-            'user' => $user,
-            'articles' => $articles->sortByDesc('taken_at'),
-            'profile_picture' => $insta['profile_picture']
-        ]);
+        // return view('profile', [
+        //     'user' => $user,
+        //     'articles' => $articles->sortByDesc('taken_at'),
+        //     'profile_picture' => $insta['profile_picture']
+        // ]);
     }
 
 }

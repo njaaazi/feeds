@@ -22,13 +22,14 @@
                         <input name="url" value="{{ $article->url }}" type="text" class="form-control" id="" placeholder="Url*">
                     </div>
                     <div class="form-group">
+                        <label for="exampleFormControlFile1">Current image</label>
                         <div class="image">
-                            <img src="{{ $article->image }}" alt="">
+                            <img src="{{asset('storage')}}/{{$article->image}}" alt="">
                         </div>
-                    
+                        <input class="pt-2" name="image" type="file" class="form-control-file" id="">
                     </div>
                     <div class="form-check">
-                        <input name="video_icon" type="checkbox" class="form-check-input" @if($article->video) checked @endif>
+                        <input name="video" type="checkbox" class="form-check-input" @if($article->video) checked @endif>
                         <label class="form-check-label">Video Icon</label>
                     </div>
                     <br>

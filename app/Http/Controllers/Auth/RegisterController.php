@@ -64,7 +64,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'insta_account' => [new InstaUser, new InstaPublicAccount, 'required', 'string', 'unique:users']
+            'insta_account' => ['required', 'string', 'unique:users']
         ]);
     }
 

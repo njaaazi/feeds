@@ -19,8 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('title')->nullable();
             $table->string('url');
             $table->string('image', 255)->nullable();
-            $table->string('taken_at')->nullable();
-            $table->string('type_name')->nullable();
+            $table->string('video')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

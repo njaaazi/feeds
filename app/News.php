@@ -7,7 +7,7 @@ use App\User;
 
 class News extends Model
 {
-    protected $fillable = ['title', 'url', 'user_id', 'image', 'video', 'taken_at', 'type_name'];
+    protected $fillable = ['title', 'url', 'user_id', 'image', 'video'];
 
     public function user()
     {
