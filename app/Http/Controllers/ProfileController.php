@@ -56,7 +56,8 @@ class ProfileController extends Controller
     {
        
         $request->validate([
-            'website_url' => ['nullable','url']
+            'website_url' => ['nullable','url'],
+            'logo' => ['nullable', 'file', 'max:500'],
         ]);
 
         if(request()->file('logo')):

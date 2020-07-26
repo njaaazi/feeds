@@ -88,33 +88,33 @@ class NewsController extends Controller
     public function store(Request $request)
     {
 
-        $validator = Validator::make($request->all(), [
-            'image' => ['required', 'unique:news'],
-        ]);
-
-        $validatorUrl = Validator::make($request->all(), [
-            'url' => ['required', 'url']
-        ]);
-
-        if($validator->fails()):
-            return back()->with([ 
-                'message' => 'Failed. This article was already added in the feed!', 
-                'alert-type' => 'error'
-            ]);
-        endif;
-    
-        if($validatorUrl->fails()):
-            return back()->with([ 
-                'message' => 'Failed. You didn\'t write your url correctly.', 
-                'alert-type' => 'error'
-            ]);
-        endif;
-    
-            
-        // $request->validate([
+        // $validator = Validator::make($request->all(), [
         //     'image' => ['required', 'unique:news'],
+        // ]);
+
+        // $validatorUrl = Validator::make($request->all(), [
         //     'url' => ['required', 'url']
         // ]);
+
+        // if($validator->fails()):
+        //     return back()->with([ 
+        //         'message' => 'Failed. This article was already added in the feed!', 
+        //         'alert-type' => 'error'
+        //     ]);
+        // endif;
+    
+        // if($validatorUrl->fails()):
+        //     return back()->with([ 
+        //         'message' => 'Failed. You didn\'t write your url correctly.', 
+        //         'alert-type' => 'error'
+        //     ]);
+        // endif;
+    
+            
+        $request->validate([
+            'image' => ['required', 'file', 'max:500'],
+            'url' => ['required', 'url']
+        ]);
 
         News::create([
             'user_id' => Auth::id(),

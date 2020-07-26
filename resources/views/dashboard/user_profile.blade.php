@@ -45,7 +45,13 @@
 
 
                         <label for="logo">Select logo</label>   
-                        <input name="logo" value="{{ $profile->logo }}" type="file" class="form-control-file" id="logo">
+                        <input name="logo" value="{{ $profile->logo }}" type="file" class="form-control-file  @error('logo') is-invalid @enderror" id="logo">
+
+                        @error('logo')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
                     <br>

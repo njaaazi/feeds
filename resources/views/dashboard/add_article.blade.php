@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-8">
 
-            @if($errors->any())
+            <!-- @if($errors->any())
                     @foreach ($errors->all() as $error)
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>{{ $error }}</strong>
@@ -16,7 +16,7 @@
                     </div>
                 @endforeach
             @endif 
-          
+           -->
 
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -30,11 +30,21 @@
                             <input name="title" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title">
                         </div>
                         <div class="form-group">
-                            <input name="url" type="text" class="form-control" id="" placeholder="Url*">
+                            <input name="url" type="text" class="form-control @error('url') is-invalid @enderror" id="url" placeholder="Url*">
+                            @error('url')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Select image</label>
-                            <input name="image" type="file" class="form-control-file" id="">
+                            <input name="image" type="file" class="form-control-file @error('image') is-invalid @enderror" id="image">
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <div class="form-check">
