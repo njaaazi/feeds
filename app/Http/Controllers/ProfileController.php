@@ -56,14 +56,14 @@ class ProfileController extends Controller
     {
        
         $request->validate([
-            'website_url' => ['required', 'url']
+            'website_url' => ['nullable','url']
         ]);
 
-        // if(request()->file('logo')):
-        //     if(Storage::exists($profile->logo))
-        //         Storage::delete($profile->logo);
-        //     $profile->logo = request()->file('logo')->store('public/images');
-        // endif; 
+        if(request()->file('logo')):
+            if(Storage::exists($profile->logo))
+                Storage::delete($profile->logo);
+            $profile->logo = request()->file('logo')->store('images');
+        endif; 
         
         $profile->website_url = request('website_url');
         $profile->update();

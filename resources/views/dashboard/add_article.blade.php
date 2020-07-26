@@ -20,7 +20,7 @@
 
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">All instagram articles</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Add your new article</h6>
                 </div>
                 <div id="card-body" class="card-body">
                     <form action="/articles/add" method="POST" enctype="multipart/form-data">
@@ -43,14 +43,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary float-right">Add article</button>
                             
                     </form>
                 </div>
 
-                <div class="card-footer text-center">
-                    <!-- <button id="load_more" class="btn btn-primary"> Load more </button> -->
-                </div>
+               
 
             </div>
 

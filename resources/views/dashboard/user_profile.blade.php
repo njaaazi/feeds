@@ -32,13 +32,25 @@
                     </div>
 
 
-                    <!-- <div class="form-group">
-                        <label for="logo">Select logo</label>
+                    <div class="form-group">
+                        <label for="logo">Current logo</label>   
+                        @if($profile->logo)
+                        <div class="profile">
+                            <img class="rounded-circle" src="{{asset('storage')}}/{{$profile->logo}}" alt="">
+                        </div>
+                        @else
+
+                            <p> <i>You didn't upload your logo yet!</i></p> 
+                        @endif
+
+
+                        <label for="logo">Select logo</label>   
                         <input name="logo" value="{{ $profile->logo }}" type="file" class="form-control-file" id="logo">
-                    </div> -->
+                    </div>
+
                     <br>
 
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary float-right">Update</button>
                 </form>
 
 
