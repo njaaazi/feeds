@@ -30,12 +30,13 @@ Route::delete('/articles/{article}/delete', 'NewsController@destroy');
 
 Route::get('/profile', 'ProfileController@edit');
 Route::put('/profile/{profile}/update', 'ProfileController@update');
-// Route::get('/instaApi', 'NewsController@insta_api_loadmore');
-// Route::get('/instatest', 'NewsController@insta_api');
+
 
 Route::group(['middleware' => ['role:super-admin']], function () {
     Route::get('/user/pending','ApproveController@index');
+    Route::get('/user/approved','ApproveController@approved');
     Route::post('/user/{user}/pending/approve', 'ApproveController@approve');
+    Route::post('/user/{user}/pending/revoke', 'ApproveController@revoke');
 });
 
 

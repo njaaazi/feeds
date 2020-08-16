@@ -83,8 +83,15 @@
 
                 <li class="nav-item {{ request()->is('user/pending') ? 'active' : '' }}">
                     <a class="nav-link collapsed" href="/user/pending" >
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Pending Users</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('user/approved') ? 'active' : '' }}">
+                    <a class="nav-link collapsed" href="/user/approved" >
                     <i class="fas fa-fw fa-check"></i>
-                    <span>Approve Users</span>
+                    <span>Approved Users</span>
                     </a>
                 </li>
 

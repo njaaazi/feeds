@@ -26,9 +26,9 @@ class ApproveController extends Controller
      */
     public function index(User $user)
     {
-        $users = $user::where('approved', 0)->get();
+        $users = User::where('approved', 0)->get();
 
-        return view('dashboard.approvals', compact('users', 'users'));
+        return view('dashboard.pending_users', compact('users', 'users'));
     }
 
     public function approve(User $user)
@@ -39,7 +39,25 @@ class ApproveController extends Controller
         return redirect('/user/pending')->with([ 
             'message' => 'Approved successfully.', 
             'alert-type' => 'success'
-        ]);;
+        ]);
+    }
+
+    public function revoke(User $user)
+    {
+        // Mail::to($user['email'])
+        //     ->send(new UserApproved($user['email'], $user['name'], route('login')));
+        $user->revokeUser();
+        return redirect('/user/approved')->with([ 
+            'message' => 'Revoked access successfully.', 
+            'alert-type' => 'success'
+        ]);
+    }
+
+
+    public function approved(User $user)
+    {
+        $users = User::where('approved', 1)->doesntHave('roles')->get();
+        return view('dashboard.approved_users', compact('users', 'users'));
     }
 
     /**

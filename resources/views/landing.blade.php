@@ -10,12 +10,14 @@
                         <img class="w-100"src="{{asset('images/grow-visual.svg')}}" alt="">
                     </div>
                     <div class="col-12 col-md-5 order-1 order-lg-2 mb-5 mb-md-0">
-                          <h1 class="display-2 mb-3">Grow your traffic</h1>
-                          <p class="lead font-weight-normal">Enrich your feeds, add links to drive traffic from Instagram</p>
-                          <div class="mt-4">
-                            <a href="/register" class="btn btn-primary primary w-100">Create your account</a>
+                            <h1 class="display-2 mb-3">Grow your traffic</h1>
+                            <p class="lead font-weight-normal">Enrich your feeds, add links to drive traffic from Instagram</p>
 
-                          </div>
+                            @guest
+                                <div class="mt-4">
+                                    <a href="/register" class="btn btn-primary primary w-100">Create your account</a>
+                                </div>
+                            @endguest
                       </div>
                 </div>
             </div>

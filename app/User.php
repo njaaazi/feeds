@@ -63,4 +63,11 @@ class User extends Authenticatable
          $this->approved = 1;
          $this->save();
     }
+
+    public function revokeUser()
+    {
+         $this->approved = 0;
+         $this->save();
+    }
+    
 }
