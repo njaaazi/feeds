@@ -29,7 +29,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
                 <div class="sidebar-brand-icon p-2">
-                    <img src="{{asset('storage/images/feeds-logo-white.png')}}" alt="Feeds logo">
+                    <img src="{{asset('images/feeds-logo-white.png')}}" alt="Feeds logo">
                    
                 </div>
                 <div class="sidebar-brand-text mx-3"></div>

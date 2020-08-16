@@ -54325,60 +54325,60 @@ __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4
     hideTooltip(e.trigger);
   });
 })(jQuery); // End of use strict
-
-
-$(document).ready(function () {
-  /**
-   * Show insta news from calling our api method in NewsController
-   */
-  var load_more_btn = document.querySelector('#load_more');
-  load_more_btn.addEventListener("click", load_more);
-  var end_cursor = '';
-  fetch('/instaApi?end_cursor=').then(function (response) {
-    console.log(response);
-    return response.json();
-  }).then(function (insta) {
-    console.log(insta.posts);
-    $.each(insta.posts, function (i, item) {
-      $('#card-body').append("<button class='instaBtn'  type='button' data-toggle='modal' data-target='#addModal'> <img width='100%' height='100%' src=" + item.node.display_url + " data-taken_at_timestamp=" + item.node.taken_at_timestamp + "  data-typename=" + item.node.__typename + "> </button>");
-    });
-    end_cursor = insta.end_cursor;
-  });
-
-  function load_more() {
-    load_more_btn.innerHTML = 'Loading';
-    fetch('/instaApi?end_cursor=' + end_cursor).then(function (response) {
-      console.log(response);
-      return response.json();
-    }).then(function (insta) {
-      console.log(insta.posts);
-      $.each(insta.posts, function (i, item) {
-        $('#card-body').append("<button class='instaBtn' type='button' data-toggle='modal' data-target='#addModal'> <img width='100%' height='100%' src=" + item.node.display_url + " data-taken_at_timestamp=" + item.node.taken_at_timestamp + "  data-typename=" + item.node.__typename + "> </button>");
-      });
-      end_cursor = insta.end_cursor;
-    }).then(function () {
-      load_more_btn.innerHTML = 'Load more';
-    });
-  }
-
-  ;
-});
-/**
- * End of insta api 
- */
-
-$(document).ready(function () {
-  $('#addModal').on('shown.bs.modal', function (e) {
-    var img_src = e.relatedTarget.children.item(0).getAttribute('src');
-    var taken_at = e.relatedTarget.children.item(0).getAttribute('data-taken_at_timestamp');
-    var type_name = e.relatedTarget.children.item(0).getAttribute('data-typename');
-    console.log(taken_at);
-    console.log(type_name);
-    $('#article_image').attr('value', img_src);
-    $('#taken_at').attr('value', taken_at);
-    $('#type_name').attr('value', type_name);
-  });
-});
+// $(document).ready( function () {
+// /**
+//  * Show insta news from calling our api method in NewsController
+//  */
+// let load_more_btn = document.querySelector('#load_more');
+// load_more_btn.addEventListener("click", load_more);
+// let end_cursor = '';
+// fetch('/instaApi?end_cursor=')
+//         .then(response => {
+//             console.log(response);
+//             return response.json();
+//         })
+//         .then(insta => {
+//             console.log(insta.posts)
+//             $.each(insta.posts, function(i, item) {
+//                 $('#card-body').append("<button class='instaBtn'  type='button' data-toggle='modal' data-target='#addModal'> <img width='100%' height='100%' src=" + item.node.display_url + " data-taken_at_timestamp="+ item.node.taken_at_timestamp +"  data-typename="+ item.node.__typename +"> </button>");
+//             })
+//           end_cursor = insta.end_cursor; 
+//         })
+// function load_more(){
+//       load_more_btn.innerHTML ='Loading';
+//       fetch('/instaApi?end_cursor='+ end_cursor)
+//           .then(response => {
+//               console.log(response);
+//               return response.json();
+//           })
+//           .then(insta => {
+//               console.log(insta.posts)
+//               $.each(insta.posts, function(i, item) {
+//                   $('#card-body').append("<button class='instaBtn' type='button' data-toggle='modal' data-target='#addModal'> <img width='100%' height='100%' src=" + item.node.display_url + " data-taken_at_timestamp="+ item.node.taken_at_timestamp +"  data-typename="+ item.node.__typename +"> </button>");
+//               })
+//               end_cursor = insta.end_cursor; 
+//           })
+//           .then(
+//             function() {
+//               load_more_btn.innerHTML ='Load more';
+//           })
+// };
+// });
+// /**
+//  * End of insta api 
+//  */
+// $(document).ready( function(){
+//   $('#addModal').on('shown.bs.modal', function (e) {
+//       let img_src = e.relatedTarget.children.item(0).getAttribute('src');
+//       let taken_at = e.relatedTarget.children.item(0).getAttribute('data-taken_at_timestamp');
+//       let type_name = e.relatedTarget.children.item(0).getAttribute('data-typename');
+//       console.log(taken_at);
+//       console.log(type_name);
+//       $('#article_image').attr('value', img_src);
+//       $('#taken_at').attr('value', taken_at);
+//       $('#type_name').attr('value', type_name);
+//   })
+// })
 
 /***/ }),
 

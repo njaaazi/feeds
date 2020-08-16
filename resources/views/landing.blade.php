@@ -7,7 +7,7 @@
             <div class="container pt-5">
                 <div class="row justify-content-between align-items-center mt-5 mt-md-0">
                     <div class="col-12 col-md-6 order-2 order-lg-1 mb-5 mb-md-0">
-                        <img class="w-100"src="{{asset('storage/images/grow-visual.svg')}}" alt="">
+                        <img class="w-100"src="{{asset('images/grow-visual.svg')}}" alt="">
                     </div>
                     <div class="col-12 col-md-5 order-1 order-lg-2 mb-5 mb-md-0">
                           <h1 class="display-2 mb-3">Grow your traffic</h1>
@@ -34,15 +34,15 @@
                     <div class="col-12 col-md-5">
                         <h2 class="font-weight-bolder mb-4">How it works</h2>
                         <p class="lead font-weight-normal">Add a link of your articles and webpages in photos and videos you post on Instagram, and drive traffic from the Link in Bio. All posts that contain links will appear in the link that you post in your profile bio. This will help you enrich your posts and also increase the traffic to your website from Instagram.</p>
-                        <a href="" class="btn btn-primary primary mt-3 animate-up-2">
+                        <!-- <a href="" class="btn btn-primary primary mt-3 animate-up-2">
                             Learn More
                             <span class="icon icon-xs ml-2">
                                 <i class="fas fa-external-link-alt"></i>
                             </span>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="col-12 col-md-6 ml-md-auto mt-5 mt-md-0 d-flex justify-content-end pl-5 pr-5">
-                        <img class="w-100" src="{{asset('storage/images/mobile-feed.svg')}}" alt="">
+                        <img class="w-100" src="{{asset('images/mobile-feed.svg')}}" alt="">
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-6 mr-lg-auto">
-                        <img src="{{asset('storage/images/feature-illustration-2.svg')}}" alt="">
+                        <img src="{{asset('images/feature-illustration-2.svg')}}" alt="">
                     </div>
                 </div> -->
 
@@ -120,7 +120,7 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-4 mb-4 mb-lg-0">
                         <a class="footer-brand mr-lg-5 d-flex" href="">
-                            <img class="w-100" src="{{asset('storage/images/feeds-logo-white.png')}}"  alt="Footer logo"> 
+                            <img class="w-100" src="{{asset('images/feeds-logo-white.png')}}"  alt="Footer logo"> 
                         </a>
                         <p class="my-4">Make your Instagram posts more attractive and your website pages more reachable.</p>
                      
