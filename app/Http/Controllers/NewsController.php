@@ -184,7 +184,7 @@ class NewsController extends Controller
         $logo = $user->profile->logo;
         return view('profile', [
             'user' => $user,
-            'articles' => $articles->sortByDesc('taken_at'),
+            'articles' => $articles->sortByDesc('created_at'),
             'logo' => $logo
         ]);
     }
