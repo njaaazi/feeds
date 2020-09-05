@@ -16,6 +16,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Username</th>
+                        <th>Insta Account</th>
                         <th>Email</th>
                         <th>Actions</th>
                        
@@ -28,6 +29,7 @@
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->username}}</td>
+                            <td>{{$user->insta_account}}</td>
                             <td>{{$user->email}}</td>
                             <td>
                             <form method="POST" action="/user/{{$user->insta_account}}/pending/revoke">
