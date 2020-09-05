@@ -11,5 +11,5 @@ Log In
 @endcomponent
 
 Thank you,<br>
-Instafeed.social
+Feeds.social
 @endcomponent

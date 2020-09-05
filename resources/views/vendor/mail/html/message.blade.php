@@ -21,7 +21,7 @@
 {{-- Footer --}}
 @slot('footer')
 @component('mail::footer')
-© {{ date('Y') }} Instafeed.social. @lang('All rights reserved.')
+© {{ date('Y') }} Feeds.social. @lang('All rights reserved.')
 @endcomponent
 @endslot
 @endcomponent
