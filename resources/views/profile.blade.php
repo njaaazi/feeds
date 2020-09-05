@@ -16,7 +16,9 @@
         <div class="container">
             <div class="row justify-content-between align-items-center"> 
                 <div class="profile col-6">
-                    <img class="rounded-circle" src="{{asset('storage')}}/{{$logo}}" alt="">
+                    @if($user->profile->logo)
+                        <img class="rounded-circle" src="{{asset('storage')}}/{{$logo}}" alt="">
+                    @endif
                 </div>
                 @if($user->profile->website_url)
                     <div class="goto col-6 text-right">
