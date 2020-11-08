@@ -27,6 +27,9 @@ Route::post('/articles/add', 'NewsController@store');
 Route::get('/articles/{article}/edit', 'NewsController@edit');
 Route::put('/articles/{article}/update', 'NewsController@update');
 Route::delete('/articles/{article}/delete', 'NewsController@destroy');
+Route::post('/articles/{article}/featured', 'NewsController@featured');
+Route::post('/articles/{article}/removeFeatured', 'NewsController@removeFeatured');
+
 
 Route::get('/profile', 'ProfileController@edit');
 Route::put('/profile/{profile}/update', 'ProfileController@update');

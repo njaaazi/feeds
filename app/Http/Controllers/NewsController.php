@@ -180,13 +180,48 @@ class NewsController extends Controller
 
     public function profile(User $user)
     {  
-        $articles = $user->news;
+        $articles = $user->news->where('is_featured', 0);
         $logo = $user->profile->logo;
+        $featured = $user->news->where('is_featured', 1)->first();
+
         return view('profile', [
             'user' => $user,
             'articles' => $articles->sortByDesc('created_at'),
-            'logo' => $logo
+            'logo' => $logo,
+            'featured' => $featured
         ]);
     }
+
+    public function featured($id)
+    {
+        $news = News::findOrFail($id);
+        
+        if(!($news->where('is_featured', 1)->get()->isEmpty())){
+            return redirect('/articles')->with([ 
+                'message' => 'There\'s already a featured post', 
+                'alert-type' => 'warning'
+            ]);
+        }
+
+        $news->featuredPost();
+        return redirect('/articles')->with([ 
+            'message' => 'Featured post added', 
+            'alert-type' => 'success'
+        ]);
+    }
+
+    public function removeFeatured($id)
+    {
+        $news = News::findOrFail($id);
+
+        $news->removeFeaturedPost();
+        return redirect('/articles')->with([ 
+            'message' => 'Removed featured post', 
+            'alert-type' => 'success'
+        ]);
+
+    }
+
+
 
 }

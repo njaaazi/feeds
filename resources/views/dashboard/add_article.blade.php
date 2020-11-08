@@ -27,10 +27,10 @@
                         @csrf
 
                         <div class="form-group">
-                            <input name="title" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title">
+                            <input name="title" type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title"  value="{{ old('title') }}">
                         </div>
                         <div class="form-group">
-                            <input name="url" type="text" class="form-control @error('url') is-invalid @enderror" id="url" placeholder="Url*">
+                            <input name="url" type="text" class="form-control @error('url') is-invalid @enderror" id="url" value="{{ old('url') }}" placeholder="Url*">
                             @error('url')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

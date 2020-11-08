@@ -44,6 +44,32 @@
 <main>
     <div class="container">
         <div class="row">
+
+            @if($featured != null)
+            <div class="card col-12">
+                <a href="{{$featured->url}}">
+                    <div class="news" style="background: url('{{asset('storage')}}/{{$featured->image}}') center / cover;">
+                        @if($featured->video == "on")
+                            <div class="card-icon">
+                                <i class="fas fa-play text-light"></i>
+                                <!-- <img src="{{asset('storage/images/video.png') }}" alt=""> -->
+                            </div>
+                        @elseif($featured->type_name == "GraphSidecar")
+                            <div class="card-icon">
+                                <!-- <i class="far fa-images text-light"></i> -->
+                                <img src="{{asset('storage/images/stack.png') }}" alt="">
+
+                            </div>
+                        @endif
+
+                        @if($featured->title)
+                            <h5 class="card-title text-dark">{{$featured->title}}</h5>
+                        @endif
+                    </div>
+                </a>
+            </div>
+            @endif
+
             @foreach($articles as $article)
                 <div class="card col-4">
                     <a href="{{$article->url}}">
