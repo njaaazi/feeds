@@ -22,13 +22,12 @@ body
     padding: 2px;
 
     .card-title {
-        margin-bottom: 0.75rem;
+        margin-bottom: 2px;
         padding: 5px;
-        margin: 0;
         font-size: 12px;
         position: absolute;
         bottom: 0;
-        width: 97%;
+        width: calc(100% - 4px);
         background: white;
 
         @include mq(laptop){

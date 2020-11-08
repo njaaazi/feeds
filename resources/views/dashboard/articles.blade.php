@@ -18,7 +18,7 @@
                         <th class="d-none d-md-table-cell">Url</th>
                         <th>Image</th>
                         <th class="d-none d-md-table-cell">Created</th>
-                        <th>Actions</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,11 +32,24 @@
                             <td class="d-none d-md-table-cell">{{$article->url}}</td>
                             <td class="image"><img src="{{asset('storage')}}/{{$article->image}}" alt=""></td>
                             <td class="d-none d-md-table-cell">{{$article->created_at->diffForHumans()}}</td>
-                            <td>
-                                <a class="btn btn-primary" href="/articles/{{ $article->id }}/edit">Edit</a>  
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                            <td class="d-flex align-items-center justify-content-center flex-wrap">
+                                <a class="btn btn-primary mr-1 mb-1 mb-md-0" href="/articles/{{ $article->id }}/edit">Edit</a>  
+                                <button type="button" class="btn btn-danger mr-md-1 mb-1 mb-md-0" data-toggle="modal" data-target="#deleteModal">
                                 Delete
                                 </button>
+
+                                @if($article->is_featured == 0)
+                                  <form class="d-inline-flex" action="/articles/{{ $article->id }}/featured" method="POST">
+                                      @csrf
+                                      <button class="btn btn-success" type="submit">Make featured</button>
+                                  </form>
+                                @else
+                                  <form class="d-inline-flex" action="/articles/{{ $article->id }}/removeFeatured" method="POST">
+                                      @csrf
+                                      <button class="btn btn-secondary" type="submit"> Remove as featured </button>
+                                  </form>
+                                @endif
+
                             </td>
                         </tr>
                     @endforeach
